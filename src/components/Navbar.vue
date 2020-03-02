@@ -10,7 +10,8 @@
                             <div class="text-center">
                                 <v-menu open-on-hover>
                                   <template v-slot:activator="{ on }">
-                                    <a href="#" class="pa-1" v-on="on"> {{ item.name }}</a>
+                                    <router-link :to="item.route" class="pa-1" v-if="item.route !== undefined" v-on="on"> {{ item.name }}</router-link>
+                                    <a href="#" class="pa-1" v-on="on" v-if="item.route === undefined"> {{ item.name }}</a>
                                   </template>
 
                                   <div v-if="item.sub !== undefined">
@@ -20,7 +21,7 @@
                                                 :key="index"
                                                 color="primary"
                                         >
-                                          <v-list-item-title><a href="" style="text-decoration: none">{{ item.name }}</a></v-list-item-title>
+                                            <v-list-item-title><router-link :to="item.route" style="text-decoration: none">{{ item.name }}</router-link></v-list-item-title>
                                         </v-list-item>
                                       </v-list>
                                   </div>
@@ -81,7 +82,7 @@
                 </v-row>
             </v-container>
             <v-list nav>
-                <v-list-item v-for="item in menus" :key="item">
+                <v-list-item v-for="(item, key) in menus" :key="key">
                     <v-list-item-action>
                         <v-icon small>fa fa-tachometer-alt</v-icon>
                     </v-list-item-action>
@@ -93,10 +94,11 @@
             <v-layout row style="width: 100%" class="mt-10">
                 <v-btn color="primary" small class="mb-10" style="margin: auto">DEVIS GRATUIT</v-btn>
                 <div class="align--item drawer--lang">
-                    <v-btn outlined fab x-small color="white" v-for="item in btns" :key="item" class="ma-2 mt-3 mb-3">{{item}}</v-btn>
+                    <v-btn outlined fab x-small color="white" v-for="(item, key) in btns" :key="key" class="ma-2 mt-3 mb-3">{{item}}</v-btn>
                 </div>
             </v-layout>
         </v-navigation-drawer>
+<!--        <v-btn color="primary" @click.prevent="routeees">ok</v-btn>-->
     </nav>
 </template>
 
@@ -109,34 +111,35 @@
             value: 0,
             menus: [
                 {
-                    name: 'Notre Société'
+                    name: 'Notre Société',
+                    route: {name: 'views', params: {name: 'about'}}
                 },
                 {
                     name: 'Nos Services',
                     sub: [
                         {
                             name: 'Fret Maritime',
-                            route: '',
+                            route: {name: 'views', params: {name: 'fret-maritime'}}
                         },
                         {
                             name: 'Fret Aérien',
-                            route: '',
+                            route: {name: 'views', params: {name: 'fret-aerien'}}
                         },
                         {
                             name: 'Service lettre, petit colis express',
-                            route: '',
+                            route: {name: 'views', params: {name: 'colis-express'}}
                         },
                         {
                             name: 'Déménagements',
-                            route: '',
+                            route: {name: 'views', params: {name: 'demenagements-internationaux'}}
                         },
                         {
                             name: 'Formalités Douanières',
-                            route: '',
+                            route: {name: 'views', params: {name: 'formalites-douanieres'}}
                         },
                         {
                             name: 'Transport Frontalier',
-                            route: '',
+                            route: {name: 'views', params: {name: 'transports-frontaliers'}}
                         },
                     ]
                 },
@@ -145,19 +148,19 @@
                     sub: [
                         {
                             name: 'DOM TOM',
-                            route: ''
+                            route: {name: 'views', params: {name: 'expedition-dom-tom'}}
                         },
                         {
                             name: 'France',
-                            route: ''
+                            route: {name: 'views', params: {name: 'expedition-france'}}
                         },
                         {
                             name: 'Chine',
-                            route: ''
+                            route: {name: 'views', params: {name: 'expedition-chine'}}
                         },
                         {
                             name: 'Expédition à l\'international',
-                            route: ''
+                            route: {name: 'views', params: {name: 'expedition-internationaux'}}
                         },
                     ]
                 },

@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify';
 // import Home from "./components/home/Home";
 import App from "./App";
 import Template from "./components/template/Template";
+import Home from "./components/home/Home";
 
 Vue.config.productionTip = false
 const router = new VueRouter({
@@ -12,7 +13,17 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: Template
+      component: Home,
+      name: 'home'
+    },
+    {
+      path: '/:name',
+      name: 'views',
+      component: Template,
+    },
+    {
+      path: '*',
+      redirectTo: 'home'
     }
   ]
 });
