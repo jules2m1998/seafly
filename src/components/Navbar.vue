@@ -1,9 +1,9 @@
 <template>
     <nav>
         <div class="header--nav container">
-            <div class="header--logo">
+            <router-link class="header--logo" :to="{name: 'home'}">
                 <img src="./../assets/seafly-logo.png" width="78px"/>
-            </div>
+            </router-link>
             <div class="header--menu mt-12">
                 <div class="align--item pa-0" v-if="is_good_size && !is_search">
                         <span class="menu--item mr-4" v-for="(item, key) in menus" :key="key">
@@ -67,7 +67,8 @@
                     </span>
                     <!-- BURGER BUTTON -->
                     <span class="btn--item" style="position: relative; bottom: 5px">
-                        <v-app-bar-nav-icon color="primary" class="" @click.prevent="drawer = true" v-if="!is_good_size"></v-app-bar-nav-icon>
+                        <v-app-bar-nav-icon color="primary" class="" @click.prevent="drawer = true"
+                                            v-if="!is_good_size"/>
                     </span>
                     <!-- END BURGER BUTTON -->
                 </div>
@@ -87,7 +88,7 @@
                         <v-icon small>fa fa-tachometer-alt</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                        <v-list-item-title>{{ item }}</v-list-item-title>
+                        <v-list-item-title>{{ item.name }}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
@@ -98,82 +99,19 @@
                 </div>
             </v-layout>
         </v-navigation-drawer>
-<!--        <v-btn color="primary" @click.prevent="routeees">ok</v-btn>-->
+<!--        <router-link :to="{name: 'promos', params: {name: 'about'}}">ok</router-link>-->
     </nav>
 </template>
 
 <script>
+    import Menu from './../data/data-menu';
     export default {
         name: "Navbar",
         data: () => ({
             drawer: false,
             interval: {},
             value: 0,
-            menus: [
-                {
-                    name: 'Notre Société',
-                    route: {name: 'views', params: {name: 'about'}}
-                },
-                {
-                    name: 'Nos Services',
-                    sub: [
-                        {
-                            name: 'Fret Maritime',
-                            route: {name: 'views', params: {name: 'fret-maritime'}}
-                        },
-                        {
-                            name: 'Fret Aérien',
-                            route: {name: 'views', params: {name: 'fret-aerien'}}
-                        },
-                        {
-                            name: 'Service lettre, petit colis express',
-                            route: {name: 'views', params: {name: 'colis-express'}}
-                        },
-                        {
-                            name: 'Déménagements',
-                            route: {name: 'views', params: {name: 'demenagements-internationaux'}}
-                        },
-                        {
-                            name: 'Formalités Douanières',
-                            route: {name: 'views', params: {name: 'formalites-douanieres'}}
-                        },
-                        {
-                            name: 'Transport Frontalier',
-                            route: {name: 'views', params: {name: 'transports-frontaliers'}}
-                        },
-                    ]
-                },
-                {
-                    name: 'Destinations',
-                    sub: [
-                        {
-                            name: 'DOM TOM',
-                            route: {name: 'views', params: {name: 'expedition-dom-tom'}}
-                        },
-                        {
-                            name: 'France',
-                            route: {name: 'views', params: {name: 'expedition-france'}}
-                        },
-                        {
-                            name: 'Chine',
-                            route: {name: 'views', params: {name: 'expedition-chine'}}
-                        },
-                        {
-                            name: 'Expédition à l\'international',
-                            route: {name: 'views', params: {name: 'expedition-internationaux'}}
-                        },
-                    ]
-                },
-                {
-                    name: 'Promotions'
-                },
-                {
-                    name: 'F.A.Q'
-                },
-                {
-                    name: 'Nous Contacter'
-                }
-            ],
+            menus: Menu.menus,
             btns: [
                 'en',
                 'fr',
@@ -187,8 +125,6 @@
           search: function() {
               if(!this.is_search) {
                   this.is_search = true;
-                  let elt = document.getElementById('search--btn').click();
-                  console.log(elt)
               } else{
                   if(this.my_search === ''){
                       this.closed();
@@ -206,14 +142,12 @@
         },
         mounted() {
             this.is_good_size = document.documentElement.clientWidth > 997;
-            console.log(this.is_good_size)
             window.addEventListener('resize',() => {
                 this.is_good_size = document.documentElement.clientWidth > 997;
             })
         },
         computed: {
             logo_show(){
-                console.log(document.documentElement.clientWidth < 300 && this.is_search)
                 return document.documentElement.clientWidth < 300 && this.is_search;
             }
         }
@@ -250,14 +184,15 @@
         text-align: center;
         height: auto;
     }
+    .align--item .menu--item a:hover{
+        color: black;
+    }
     .align--item .menu--item{
         border-bottom: 0.3em solid #ffffff;
     }
-    .align--item .menu--item:hover{
+    .align--item .menu--item:hover, .router-link-active{
         border-bottom: 0.3em solid #ed120b;
-    }
-    .search--container{
-
+        color: #580a07;
     }
     .search--container input{
         width: 250px;
@@ -268,10 +203,6 @@
         padding: 0px 55px 0px 10px;
         font-size: 16px;
         color: #333333;
-    }
-    .logo--menu{
-        position: relative;
-        align-items: flex-end;
     }
     .drawer--lang{
         width: 100%;
@@ -325,6 +256,9 @@
     }
     .translate-leave-active{
         display: none;
+    }
+    .header--logo.router-link-active{
+        border: none;
     }
     @media screen and (max-width: 400px) {
 

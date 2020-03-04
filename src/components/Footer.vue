@@ -2,13 +2,13 @@
     <footer>
         <v-container>
             <div class="footer--items align--item">
-                <div class="footer--item" :style="{width: item.width + '%'}" v-for="item in footers" :key="item.name">
+                <div class="footer--item" :style="{width: item.width + '%'}" v-for="(item, key) in footers" :key="key">
                     <div class="footer--item--title">
                         <h3>{{ item.name }}</h3>
                     </div>
                     <div class="footer--item--content">
                         <ul>
-                            <li v-for="subitem in item.links" :key="subitem"><a href="#">{{ subitem }}</a></li>
+                            <li v-for="(subitem , key) in item.links" :key="key"><router-link :to="subitem.to">{{ subitem.name }}</router-link></li>
                         </ul>
                     </div>
                 </div>
@@ -67,31 +67,73 @@
                 {
                     name: 'Notre société',
                     links: [
-                        'Notre Société',
-                        'Promotions',
-                        'Carrière',
-                        'Nous Contacter'
+                        {
+                            name: 'Notre Société',
+                            to: 'about'
+                        }
+                        ,
+                        {
+                            name: 'Promotions',
+                            to: {name: 'promos'}
+                        }
+                        ,
+                        {
+                            name: 'Carrière',
+                            to: {name: 'desc', params: {name: 'career'}}
+                        }
+                        ,
+                        {
+                            name: 'Nous Contacter',
+                            to: {name: 'contact'}
+                        }
                     ],
                     width: 12
                 },
                 {
                     name: 'Nos Services',
                     links: [
-                        'Fret Maritime',
-                        'Fret Aérien',
-                        'Service lettre, petit colis express',
-                        'Déménagements',
-                        'Formalités Douanières',
-                        'Transport Frontalier'
+                        {
+                            name: 'Fret Maritime',
+                            to: {name: 'desc', params: {name: 'fret-maritime'}}
+                        },
+                        {
+                            name: 'Fret Aérien',
+                            to: {name: 'desc', params: {name: 'fret-aerien'}}
+                        },
+                        {
+                            name: 'Service lettre, petit colis express',
+                            to: {name: 'desc', params: {name: 'colis-express'}}
+                        },
+                        {
+                            name: 'Déménagements',
+                            to: {name: 'desc', params: {name: 'demenagements-internationaux'}}
+                        },
+                        {
+                            name: 'Formalités Douanières',
+                            to: {name: 'desc', params: {name: 'formalites-douanieres'}}
+                        },
+                        {
+                            name: 'Transport Frontalier',
+                            to: {name: 'desc', params: {name: 'transports-frontaliers'}}
+                        },
                     ],
                     width: 20
                 },
                 {
-                    name: 'Outils & Ressources',
+                    name: 'Outils & Ressourcesfo',
                     links: [
-                        'Conversions Volumétriques',
-                        'Incoterms',
-                        'Spécifications sur les Conteneurs'
+                        {
+                            name: 'Conversions Volumétriques',
+                            to: 'transports-frontaliers'
+                        },
+                        {
+                            name: 'Incoterms',
+                            to: 'transports-frontaliers'
+                        },
+                        {
+                            name: 'Spécifications sur les Conteneurs',
+                            to: 'transports-frontaliers'
+                        },
                     ],
                     width: 20
                 }

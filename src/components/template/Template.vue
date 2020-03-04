@@ -4,16 +4,15 @@
 
         </div>
         <div>
-            <Description/>
+            <router-view/>
         </div>
     </div>
 </template>
 
 <script>
-    import Description from "./Description";
+
     export default {
         name: "Template",
-        components: {Description},
         data: () => ({
             img: 'removal.jpg'
         })

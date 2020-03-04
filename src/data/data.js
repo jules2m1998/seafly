@@ -209,6 +209,23 @@ export default {
                 'Certaines villes comme Yiwu ou Ghangzhou sont très dynamiques pour l’exportation.\n' +
                 '\n' +
                 'N’importe quelle expédition de Chine, nous pouvons vous aider avec nos agents situés partout en Chine (Shenzhen, Guangzhou, Qingdao, Xiamen, Yiwu, Shanghai, …)'
+        },
+        {
+            name: 'career',
+            title: 'Carrière',
+            imgHead: 'seashipment.jpg',
+            showContact: true,
+            paragraph: 'Pour rejoindre notre équipe, n’hésitez pas à nous faire parvenir votre CV accompagné\n' +
+                'd’une lettre de motivation.\n' +
+                '\n' +
+                'Opportunités actuellement disponibles :---title---\n' +
+                '– Sales Admin (Thai National)\n' +
+                '\n' +
+                'Au cours de l’année nous donnons également l’opportunité a des stagiaires de découvrir\n' +
+                'et accroitre leurs compétences logistiques et commerciales.\n' +
+                '\n' +
+                'Pour cela nous envoyer vos dates de stages accompagnés d’un CV et lettre de motivation\n' +
+                'à l’adresse : info@seafly-services.com'
         }
     ]
 
