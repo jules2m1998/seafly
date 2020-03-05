@@ -14,12 +14,12 @@
                         <img src="../../assets/img/homepromotion.jpg" alt="">
                     </div>
                     <div class="button mt-4" v-if="item2.buttons">
-                        <v-btn color="primary">DEVIS GRATUIT</v-btn>
+                        <v-btn color="primary" :to="{name: 'devis'}">DEVIS GRATUIT</v-btn>
                         <v-btn style="background: #47d037" class="white--text ml-3" width="150px"><img src="./../../assets/img/line-square.png" width="90px" alt=""></v-btn>
                     </div>
                 </div>
                 <div class="footer">
-                    <a href="#"><v-icon color="primary">arrow_right</v-icon>{{ item2.bottomTitle}}</a>
+                    <router-link :to="item2.link"><v-icon color="primary">arrow_right</v-icon>{{ item2.bottomTitle}}</router-link>
                 </div>
             </div>
         </div>
@@ -37,21 +37,21 @@
                     name: 'Promotions',
                     text: 'Découvrez les promotions actuelles pour les expéditions ou services pour profiter des meilleures offres.',
                     img: true,
-                    link: '',
+                    link: {name: 'promos'},
                     bottomTitle: 'Tout afficher'
                 },
                 {
                     name: 'Expédition Dom Tom',
                     text: 'Nouvelle Calédonie (Nouméa), La Réunion, Martinique, Guadeloupe, nous déservons toutes ces destinations.',
                     img: false,
-                    link: '',
+                    link: {name: 'desc', params: {name: 'expedition-dom-tom'}},
                     bottomTitle: 'Plus d\'informations'
                 },
                 {
                     name: 'Obtenez votre cotation\n',
                     text: 'Utilisez notre formulaire pour nous fournir les détails de votre demande nous reviendrons vers vous le plus tôt possible pour vous accompagner.\n',
                     img: false,
-                    link: '',
+                    link: {name: 'contact'},
                     buttons: true,
                     bottomTitle: 'Nous contacter'
                 }

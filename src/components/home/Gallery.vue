@@ -6,7 +6,7 @@
                 <div class="img--hover">
                     <div class="title ml-1 mt-1">{{ item1.name }}</div>
                     <div class="description-item ml-2 mt-1">{{ item1.description }}</div>
-                    <v-btn outlined color="white" class="ml-3 mt-1" x-small>Plus d'information</v-btn>
+                    <v-btn outlined color="white" class="ml-3 mt-1" x-small :to="item1.route">Plus d'information</v-btn>
                 </div>
             </div>
             <div class="img img--right" v-for="item2 in gallery.right" :key="item2.name" :class="'img-1' + item2.position">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="img--hover">
                     <div class="description-item ml-3 mt-3">{{ item2.description }}</div>
-                    <v-btn outlined color="white" class="ml-3 mt-1" x-small>Plus d'information</v-btn>
+                    <v-btn outlined color="white" class="ml-3 mt-1" x-small :to="item2.route">Plus d'information</v-btn>
                 </div>
             </div>
         </div>
@@ -32,25 +32,25 @@
                     {
                         name: 'Fret Maritime',
                         description: 'Envoyez votre marchandise par Conteneur (Conteneur complet/groupage). Groupage vers toutes les destinations.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'fret-maritime'}},
                         position: 1,
                     },
                     {
                         name: 'Fret Aérien',
                         description: 'Besoin d\'un service rapide, nous nous occupons de tout Aéroports commerciaux dans le monde pour un service rapide.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'fret-aerien'}},
                         position: 2,
                     },
                     {
                         name: 'Service lettre, petit colis express',
                         description: '3-5 jours de transport, service porte à porte par service courrier vers toutes destinations.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'colis-express'}},
                         position: 3,
                     },
                     {
                         name: 'Déménagements',
                         description: 'Nous pouvons vous aider dans toutes vos démarches de l\'emballage à l\'envoi, documents jusqu\'à votre nouvelle destination.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'demenagements-internationaux'}},
                         position: 4,
                     }
                 ],
@@ -58,40 +58,40 @@
                     {
                         name: 'Formalités Douanières',
                         description: 'Nous vous conseillons sur les formalités douanières, et le processus d\'import/export.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'formalites-douanieres'}},
                         position: 1,
                     },
                     {
                         name: 'Transport Frontalier',
                         description: 'Grâce à notre réseau, nous organisons des transports frontaliers avec la Birmanie, Laos, Vietnam, Cambodge.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'transports-frontaliers'}},
                         position: 2,
                     },
                     {
                         name: 'FRANCE',
                         is_expd: true,
                         description: 'Equipe francophone, un service d\'expéditon plus simple et efficace.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'expedition-france'}},
                         position: 3,
                     },
                     {
                         name: 'DOM TOM',
                         is_expd: true,
                         description: 'Nouvelle Calédonie (Nouméa), La Réunion, Martinique, Guadeloupe, nous déservons toutes ces destinations.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'expedition-dom-tom'}},
                         position: 4,
                     },
                     {
                         name: 'CHINE',
                         is_expd: true,
                         description: 'Un envoi de Chine, nous organisons chacun des aspects du transport à des prix compétitifs.',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'expedition-chine'}},
                         position: 5,
                     },
                     {
                         name: 'Expédition à l\'International',
                         description: '',
-                        route: '',
+                        route: {name: 'desc', params: {name: 'expedition-internationaux'}},
                         position: 6,
                     }
                 ],

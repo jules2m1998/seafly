@@ -102,7 +102,6 @@
                 </div>
             </v-layout>
         </v-navigation-drawer>
-<!--        <router-link :to="{name: 'promos', params: {name: 'about'}}">ok</router-link>-->
     </nav>
 </template>
 
