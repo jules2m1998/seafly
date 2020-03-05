@@ -50,7 +50,7 @@
             <div class="header--button mt-6">
                 <div class="align--item pt-4" v-if="!is_search">
                     <span class="btn--item">
-                        <v-btn color="primary" small class="mr-1">DEVIS GRATUIT</v-btn>
+                        <v-btn color="primary" small class="mr-1" :to="{name: 'devis'}">DEVIS GRATUIT</v-btn>
                     </span>
                     <span v-if="is_good_size" class="align--item">
                         <v-select
@@ -88,12 +88,15 @@
                         <v-icon small>fa fa-tachometer-alt</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                        <v-list-item-title>{{ item.name }}</v-list-item-title>
+                        <v-list-item-title>
+                            <router-link :to="item.route" tag="span" v-if="item.route !== undefined">{{ item.name }}</router-link>
+                            <span v-if="item.route === undefined">{{item.name}}</span>
+                        </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
             <v-layout row style="width: 100%" class="mt-10">
-                <v-btn color="primary" small class="mb-10" style="margin: auto">DEVIS GRATUIT</v-btn>
+                <v-btn color="primary" small class="mb-10" style="margin: auto" :to="{name: 'devis'}">DEVIS GRATUIT</v-btn>
                 <div class="align--item drawer--lang">
                     <v-btn outlined fab x-small color="white" v-for="(item, key) in btns" :key="key" class="ma-2 mt-3 mb-3">{{item}}</v-btn>
                 </div>
@@ -192,7 +195,6 @@
     }
     .align--item .menu--item:hover, .router-link-active{
         border-bottom: 0.3em solid #ed120b;
-        color: #580a07;
     }
     .search--container input{
         width: 250px;

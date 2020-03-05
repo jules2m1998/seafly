@@ -9,6 +9,7 @@ import Promotion from "./components/promotion/Promotion";
 import Description from "./components/template/Description";
 import Faq from "./components/faq/Faq";
 import Contact from "./components/contact/Contact";
+import Devis from "./components/Devis/Devis";
 
 Vue.config.productionTip = false
 const router = new VueRouter({
@@ -38,6 +39,11 @@ const router = new VueRouter({
           path: 'contact',
           component: Contact,
           name: 'contact'
+        },
+        {
+          path: 'devis-denvoi',
+          component: Devis,
+          name: 'devis'
         },
         {
           path: ':name',

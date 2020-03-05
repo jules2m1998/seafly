@@ -14,7 +14,7 @@
     export default {
         name: "Template",
         data: () => ({
-            img: 'removal.jpg'
+            img: 'seashipment.jpg'
         })
     }
 </script>
