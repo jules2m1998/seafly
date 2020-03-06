@@ -38,10 +38,9 @@
                                     outlined
                             />
                             <v-select
-                                    ref="country"
-                                    v-model="country"
                                     :items="countries"
                                     label="Unité"
+                                    outlined
                             />
                         </div>
                         <div class="grid-51">
@@ -51,10 +50,9 @@
                                     outlined
                             />
                             <v-select
-                                    ref="country"
-                                    v-model="country"
                                     :items="countries"
                                     label="Unité"
+                                    outlined
                             />
                         </div>
                         <v-select

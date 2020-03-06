@@ -8,23 +8,22 @@
                 <div class="align--item pa-0" v-if="is_good_size && !is_search">
                         <span class="menu--item mr-4" v-for="(item, key) in menus" :key="key">
                             <div class="text-center">
-                                <v-menu open-on-hover>
+                                <v-menu open-on-hover offset-y>
                                   <template v-slot:activator="{ on }">
                                     <router-link :to="item.route" class="pa-1" v-if="item.route !== undefined" v-on="on"> {{ item.name }}</router-link>
-                                    <a href="#" class="pa-1" v-on="on" v-if="item.route === undefined"> {{ item.name }}</a>
+                                      <a href="#" class="pa-1" v-on="on" v-if="item.route === undefined"> {{ item.name }}</a>
                                   </template>
-
                                   <div v-if="item.sub !== undefined">
-                                      <v-list>
-                                        <v-list-item
-                                                v-for="(item, index) in item.sub"
-                                                :key="index"
-                                                color="primary"
-                                        >
-                                            <v-list-item-title><router-link :to="item.route" style="text-decoration: none">{{ item.name }}</router-link></v-list-item-title>
-                                        </v-list-item>
-                                      </v-list>
-                                  </div>
+                                    <v-list>
+                                      <v-list-item
+                                              v-for="(item, index) in item.sub"
+                                              :key="index"
+                                              color="primary"
+                                      >
+                                          <v-list-item-title><router-link :to="item.route" style="text-decoration: none">{{ item.name }}</router-link></v-list-item-title>
+                                      </v-list-item>
+                                    </v-list>
+                                </div>
                                 </v-menu>
                               </div>
                         </span>
