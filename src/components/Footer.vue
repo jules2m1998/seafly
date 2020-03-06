@@ -22,7 +22,7 @@
                         </div>
                         <div class="align--item">
                             <ul style="width: 65%">
-                                <li v-for="contact in contacts" :key="contact"><a href="#">{{ contact }}</a></li>
+                                <li v-for="contact in contacts" :key="contact"><router-link :to="{name: 'contact'}">{{ contact }}</router-link></li>
                                 <li>
                                     <v-btn class="ma-2 white--text" x-small fab color="facebook">
                                         <v-icon>fab fa-facebook-f</v-icon>
