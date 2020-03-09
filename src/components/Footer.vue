@@ -124,7 +124,7 @@
                     links: [
                         {
                             name: 'Conversions Volumétriques',
-                            to: 'transports-frontaliers'
+                            to: {name: 'convert'}
                         },
                         {
                             name: 'Incoterms',
@@ -132,7 +132,7 @@
                         },
                         {
                             name: 'Spécifications sur les Conteneurs',
-                            to: 'transports-frontaliers'
+                            to:  {name: 'specification'}
                         },
                     ],
                     width: 20

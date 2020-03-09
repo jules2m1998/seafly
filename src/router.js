@@ -7,6 +7,8 @@ import Faq from "./components/faq/Faq";
 import Contact from "./components/contact/Contact";
 import Devis from "./components/Devis/Devis";
 import Description from "./components/template/Description";
+import Specification from "./components/specification/Specification";
+import Conversion from "./components/conversion/Conversion";
 
 Vue.use(VueRouter);
 export default new VueRouter({
@@ -41,6 +43,16 @@ export default new VueRouter({
                     path: 'devis-denvoi',
                     component: Devis,
                     name: 'devis'
+                },
+                {
+                    path: 'container-size',
+                    component: Specification,
+                    name: 'specification'
+                },
+                {
+                    path: 'volumetric-convert',
+                    component: Conversion,
+                    name: 'convert'
                 },
                 {
                     path: ':name',

@@ -14,8 +14,8 @@
                         <img src="../../assets/img/homepromotion.jpg" alt="">
                     </div>
                     <div class="button mt-4" v-if="item2.buttons">
-                        <v-btn color="primary" :to="{name: 'devis'}">DEVIS GRATUIT</v-btn>
-                        <v-btn style="background: #47d037" class="white--text ml-3" width="150px"><img src="./../../assets/img/line-square.png" width="90px" alt=""></v-btn>
+                        <RedButton class="mr-2"/>
+                        <GreenButton/>
                     </div>
                 </div>
                 <div class="footer">
@@ -28,9 +28,11 @@
 
 <script>
     import Gallery from "./Gallery";
+    import GreenButton from "../utils/GreenButton";
+    import RedButton from "../utils/RedButton";
     export default {
         name: "Home",
-        components: {Gallery},
+        components: {RedButton, GreenButton, Gallery},
         data: () => ({
             table: [
                 {

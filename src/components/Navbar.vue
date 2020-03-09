@@ -73,7 +73,15 @@
                 </div>
             </div>
         </div>
-        <v-navigation-drawer v-model="drawer" dark app class="darken-3 py-0" color="primary" style="overflow: paged-x">
+        <v-navigation-drawer
+                v-model="drawer"
+                dark app
+                class="darken-3 py-0"
+                color="primary"
+                style="overflow: paged-x"
+                absolute
+                temporary
+        >
             <v-container>
                 <v-row>
                     <v-col md="12">
